@@ -11,8 +11,9 @@ import java.net.URI;
 public class ReadFileFromHDFS {
 
     public static void main(String[] args) throws Exception {
-        FileSystem fileSystem = FileSystem.get(URI.create(args[0]), new Configuration());
-        FSDataInputStream fsDataInputStream = fileSystem.open(new Path(args[0]));
+        String destination = "hdfs://node01:8020/test.txt";
+        FileSystem fileSystem = FileSystem.get(URI.create(destination), new Configuration());
+        FSDataInputStream fsDataInputStream = fileSystem.open(new Path(destination));
         IOUtils.copyBytes(fsDataInputStream, System.out, 4096, true);
     }
 }

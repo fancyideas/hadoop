@@ -13,8 +13,8 @@ import java.net.URI;
 
 public class UploadfileToHDFS {
     public static void main(String[] args) throws Exception {
-        String source = "D:\\bigdata-test\\custome-partitioner\\content002.txt";
-        String destination = "hdfs://node01:8020/custompartitioner/content002.txt";
+        String source = "D:\\testdata\\test02.txt";
+        String destination = "hdfs://node01:8020/test02.txt";
         InputStream in = new BufferedInputStream(new FileInputStream(source));
         FileSystem fileSystem = FileSystem.get(URI.create(destination), new Configuration());
         FSDataOutputStream fsDataOutputStream = fileSystem.create(new Path(destination));
